@@ -962,3 +962,30 @@ h2 em {
 		font-size: 58px;
 	}
 }
+
+
+
+.planet-search {
+    display: flex;
+    width: 100%;
+    max-width: 360px;
+    margin-bottom: 30px;
+    padding: 10px 16px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    outline: none;
+    color: var(--ink);
+    background: black;
+    font: 12px var(--mono);
+}
+
+.planet-search::placeholder {
+    color: var(--muted);
+}
+
+.planet-search:focus {
+    border-color: var(--purple);
+}
+
+
+

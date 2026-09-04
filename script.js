@@ -59,3 +59,68 @@ const sections = document.querySelectorAll('main section[id]');
 const navLinks = document.querySelectorAll('.main-nav a');
 const observer = new IntersectionObserver((entries) => entries.forEach((entry) => { if (entry.isIntersecting) navLinks.forEach((link) => link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`)); }), { rootMargin: '-45% 0px -45% 0px' });
 sections.forEach((section) => observer.observe(section));
+
+
+
+
+// my new changes
+
+const searchbox = document.createElement('input');
+
+searchbox.placeholder = 'Search planets...';
+searchbox.className = 'planet-search';
+
+document.querySelector('.planets-section').prepend(searchbox);
+
+searchbox.addEventListener('input', (event) => {
+    const searchTerm = searchbox.value.toLowerCase();
+    
+    document.querySelectorAll('.planet-card').forEach((card, index) => {
+        const planetName = card.querySelector('h3').textContent.toLowerCase();
+        card.style.display = planetName.includes(searchTerm) ? '' : 'none';
+    });
+});
+
+
+/// new feature fav planet
+
+
+const favoritePlanets = JSON.parse(localStorage.getItem('favoritePlanets')) || [];
+
+document.querySelectorAll('.planet-card').forEach((card, index) => {   
+    const favbutton = document.createElement('button');
+
+    favbutton.textContent = favoritePlanets.includes(index) ? 'FAV' : 'NOT FAV';
+
+    favbutton.className = 'fav-button';
+    card.appendChild(favbutton);
+
+    favbutton.addEventListener('click', () => {
+        const postion = favoritePlanets.indexOf(index);
+
+        if (postion === -1) {
+            favoritePlanets.push(index);
+            favbutton.textContent = 'FAV';
+        } else {
+            favoritePlanets.splice(postion, 1);
+            favbutton.textContent = 'NOT FAV';
+        }
+
+        localStorage.setItem('favoritePlanets', JSON.stringify(favoritePlanets));
+    });
+});
+
+
+// random planettt
+
+
+const randomButton = document.createElement('button');
+randomButton.textContent = 'Random Planet';
+randomButton.className = 'random-button';
+
+document.querySelector('.planets-section').prepend(randomButton);
+
+randomButton.addEventListener('click', () => {
+    const randomIndex = Math.floor(Math.random() * planets.length);
+    openPlanet(randomIndex);
+});
