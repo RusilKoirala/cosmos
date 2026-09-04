@@ -8,9 +8,9 @@
 	--deep-navy: #0d1230;
 	--panel: rgba(20, 27, 62, 0.68);
 	--line: rgba(164, 174, 224, 0.18);
-	--purple: #9b8cff;
-	--blue: #5bbcff;
-	--cyan: #7de2e6;
+	--purple: #5544c7;
+	--blue: #329ae5;
+	--cyan: #3ee1e7;
 	--serif: 'Barlow Condensed', sans-serif;
 	--sans: 'Manrope', sans-serif;
 	--mono: 'DM Mono', monospace;
@@ -103,9 +103,15 @@ a {
 
 h1,
 h2,
-h3,
+h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    line-height: 0.9;
+}
 p {
-	margin-top: 0;
+    font-family: 'Manrope', sans-serif;
+	line-height: 1.7;
 }
 
 .mono,
@@ -190,13 +196,13 @@ p {
 	font-size: 11px;
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
-	transition: color 0.25s, background 0.25s;
+	transition: color 0.3s, background 0.3s;
 }
 
 .main-nav a:hover,
 .main-nav a.active {
 	color: var(--ink);
-	background: rgba(155, 140, 255, 0.22);
+	background: rgba(129, 110, 255, 0.22);
 }
 
 .header-signal {
@@ -458,15 +464,15 @@ h2 em {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	min-height: 330px;
-	padding: 28px;
+	min-height: 350px;
+	padding: 30px;
 	overflow: hidden;
 	border: 1px solid rgba(164, 174, 224, 0.2);
 	border-radius: 18px;
 	background: linear-gradient(145deg, rgba(33, 37, 78, 0.72), rgba(10, 14, 34, 0.84));
 	backdrop-filter: blur(16px);
 	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 18px 45px rgba(0, 0, 0, 0.22);
-	transition: transform 0.35s ease, border-color 0.35s ease, background 0.35s ease;
+	transition: transform 0.5s ease;
 }
 
 .planet-card:hover {
